@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { BottomNavigation, Text } from "react-native-paper";
+import Profile from "./Profile";
 
 const Home = ({ route }) => {
   const { student } = route.params;
@@ -26,7 +27,10 @@ const Home = ({ route }) => {
     },
   ]);
 
-  
+  const renderScene = BottomNavigation.SceneMap({
+    profile: () => <Profile student={student} />,
+  });
+
   return (
     <BottomNavigation
       navigationState={{ index, routes }}

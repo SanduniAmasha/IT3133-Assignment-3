@@ -5,6 +5,8 @@ import { StyleSheet } from "react-native";
 import { PaperProvider } from "react-native-paper";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
+import Login from "./components/Login";
+
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -12,8 +14,21 @@ export default function App() {
     <SafeAreaProvider>
       <PaperProvider>
         <NavigationContainer>
-          <Stack.Navigator screenOptions={{}}>
-            
+          <Stack.Navigator screenOptions={{
+            eaderStyle: {
+              backgroundColor: "#4b0150",
+            },
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              color: "#fff",
+            },
+            headerTitleAlign: "center",
+          }}>
+            <Stack.Screen
+              name="login"
+              component={Login}
+              options={{ title: "UoV Student Care" }}
+            />
           </Stack.Navigator>
         </NavigationContainer>
       </PaperProvider>

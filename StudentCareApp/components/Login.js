@@ -5,6 +5,31 @@ import { Button, Icon, TextInput } from "react-native-paper";
 import { students } from "../assets/StudentsDb";
 
 export default function Login(){
+  const [data, setData] = useState({
+    username: "",
+    password: "",
+  });
+  const [isSecure, setIsSecure] = useState(true);
+  const [error, setError] = useState("");
+
+  const navigation = useNavigation();
+
+  const handleLogin = () => {
+    if (!data.username || !data.password) {
+      setError("Please fill all fields");
+      return;
+    }
+
+    const student = students.find((s) => s.username === data.username);
+
+    if (!student || student.password !== data.password) {
+      setError("Please check your username and password");
+      return;
+    }
+
+    navigation.navigate("home", { student });
+  };
+
     return(
         <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}

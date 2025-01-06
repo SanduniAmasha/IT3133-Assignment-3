@@ -14,7 +14,8 @@ export default function App() {
     <SafeAreaProvider>
       <PaperProvider>
         <NavigationContainer>
-          <Stack.Navigator screenOptions={{
+          <Stack.Navigator initialRouteName="login"
+           screenOptions={{
             eaderStyle: {
               backgroundColor: "#4b0150",
             },

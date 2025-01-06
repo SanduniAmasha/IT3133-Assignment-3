@@ -10,7 +10,26 @@ const Profile = ({ student }) => {
       <Card style={{ margin: 20 }}>
         <Card.Content style={styles.cardContent}>
           <Image source={student.profile_pic} style={styles.profile_pic} />
-          
+       
+          <Text style={{ fontWeight: "bold", marginTop: 20 }}>
+            Contact Information
+          </Text>
+          <Text>Email: {student.email}</Text>
+          <Text>Phone: {student.phone}</Text>
+          <Text>Address: {student.address}</Text>
+
+          <View
+            style={{
+              marginBlock: 20,
+              borderBottomColor: "black",
+              borderBottomWidth: StyleSheet.hairlineWidth,
+            }}
+          />
+
+          <Text style={{ fontWeight: "bold" }}>Biological Information</Text>
+          <Text>Gender: {student.gender}</Text>
+          <Text>Age: {student.age}</Text>
+          <Text>Blood Group: {student.blood_group}</Text>
         </Card.Content>
       </Card>
     </View>
@@ -22,6 +41,12 @@ export default Profile;
 const styles = StyleSheet.create({
   view: {
     flex: 1,
+  },
+  h1: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginTop: 4,
+    textAlign: "center",
   },
   image: {
     marginTop: 20,

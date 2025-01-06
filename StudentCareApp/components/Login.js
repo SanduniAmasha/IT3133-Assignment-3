@@ -14,34 +14,47 @@ export default function Login(){
             <View style={styles.body}>
              <Image source={require("../assets/logo.png")} style={styles.image} />
              <View style={styles.container}>
-            <Text style={styles.h1}>Student Login</Text>
+                <Text style={styles.h1}>Student Login</Text>
 
-            <View style={styles.form}>
-              <TextInput
-                mode="outlined"
-                label="Username"
-                placeholder="Enter your username"
-                style={styles.form.input}
-                value={data.username}
-                onChangeText={(text) => setData({ ...data, username: text })}
-              />
-              <TextInput
-                mode="outlined"
-                label="Password"
-                placeholder="Enter your password"
-                style={styles.form.input}
-                value={data.password}
-                onChangeText={(text) => setData({ ...data, password: text })}
-                right={
-                  <TextInput.Icon
-                    icon="eye"
-                    onPress={() => setIsSecure(!isSecure)}
-                  />
-                }
-                secureTextEntry={isSecure}
-              />
+                <View style={styles.form}>
+                    <TextInput
+                        mode="outlined"
+                        label="Username"
+                        placeholder="Enter your username"
+                        style={styles.form.input}
+                        value={data.username}
+                        onChangeText={(text) => setData({ ...data, username: text })}
+                    />
+                    <TextInput
+                        mode="outlined"
+                        label="Password"
+                        placeholder="Enter your password"
+                        style={styles.form.input}
+                        value={data.password}
+                        onChangeText={(text) => setData({ ...data, password: text })}
+                        right={
+                        <TextInput.Icon
+                            icon="eye"
+                            onPress={() => setIsSecure(!isSecure)}
+                        />
+                        }
+                        secureTextEntry={isSecure}
+                    />
+                        <Button
+                        mode="contained"
+                        style={styles.button}
+                        onPress={handleLogin}
+                    >
+                        Login
+                    </Button>
+                    </View>
+                    {error && (
+                        <View style={styles.error}>
+                            <Icon source="alert-circle" size={20} style={styles.icon} />
+                            <Text>{error}</Text>
+                        </View>
+                    )}
                 </View>
-              </View>
             </View>
         </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
@@ -58,12 +71,39 @@ const styles = StyleSheet.create({
       alignItems: "center",
       justifyContent: "space-between",
     },
-   
+    container: {
+        flexGrow: 1,
+        padding: 20,
+        width: "100%",
+      },
     image: {
       marginTop: 20,
       width: "100%",
       height: 100,
       resizeMode: "contain",
     },
+    form: {
+        marginTop: 20,
+        input: {
+          width: "100%",
+        },
+      },
+      h1: {
+        fontSize: 28,
+        fontWeight: "bold",
+        textAlign: "center",
+      },
+      button: {
+        backgroundColor: "#4b0150",
+        marginTop: 20,
+      },
+      error: {
+        marginTop: 20,
+        padding: 10,
+        backgroundColor: "#f4edf7",
+        borderRadius: 5,
+        flexDirection: "row",
+        gap: 6,
+      },
   });
   

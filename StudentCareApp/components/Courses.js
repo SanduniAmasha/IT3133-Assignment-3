@@ -50,5 +50,16 @@ const styles = StyleSheet.create({
     height: 100,
     resizeMode: "contain",
   },
-  
+  h1: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginTop: 4,
+    textAlign: "center",
+  },
+  profile_pic: {
+    width: 150,
+    height: 150,
+    borderRadius: 100,
+    margin: "auto",
+  },
 });

@@ -12,6 +12,18 @@ const Courses = ({ student }) => {
 
       <Card style={{ margin: 20 }}>
         <Card.Content style={styles.cardContent}>
+          <Text style={styles.h1}>{course.name}</Text>
+          <Text style={{ textAlign: "center" }}>
+            Code: {course.course_code} | Dept: {course.department}
+          </Text>
+
+          <View
+            style={{
+              marginBlock: 20,
+              borderBottomColor: "black",
+              borderBottomWidth: StyleSheet.hairlineWidth,
+            }}
+          />
 
           <Text style={{ fontWeight: "bold", marginTop: 20 }}>
             Course Information

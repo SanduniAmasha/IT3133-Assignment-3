@@ -13,7 +13,35 @@ export default function Login(){
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.body}>
              <Image source={require("../assets/logo.png")} style={styles.image} />
+             <View style={styles.container}>
+            <Text style={styles.h1}>Student Login</Text>
 
+            <View style={styles.form}>
+              <TextInput
+                mode="outlined"
+                label="Username"
+                placeholder="Enter your username"
+                style={styles.form.input}
+                value={data.username}
+                onChangeText={(text) => setData({ ...data, username: text })}
+              />
+              <TextInput
+                mode="outlined"
+                label="Password"
+                placeholder="Enter your password"
+                style={styles.form.input}
+                value={data.password}
+                onChangeText={(text) => setData({ ...data, password: text })}
+                right={
+                  <TextInput.Icon
+                    icon="eye"
+                    onPress={() => setIsSecure(!isSecure)}
+                  />
+                }
+                secureTextEntry={isSecure}
+              />
+                </View>
+              </View>
             </View>
         </TouchableWithoutFeedback>
     </KeyboardAvoidingView>

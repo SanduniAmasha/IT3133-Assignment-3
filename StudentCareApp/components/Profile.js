@@ -10,7 +10,11 @@ const Profile = ({ student }) => {
       <Card style={{ margin: 20 }}>
         <Card.Content style={styles.cardContent}>
           <Image source={student.profile_pic} style={styles.profile_pic} />
-       
+          <Text style={styles.h1}>{student.name}</Text>
+          <Text style={{ textAlign: "center" }}>
+            Age : {student.age} | Gender: {student.gender}
+          </Text>
+          
           <Text style={{ fontWeight: "bold", marginTop: 20 }}>
             Contact Information
           </Text>

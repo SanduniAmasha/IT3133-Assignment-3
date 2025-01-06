@@ -4,18 +4,16 @@ import { Card, DataTable } from "react-native-paper";
 import { courses, marks as marksData, subjects as subjectsData } from "../assets/StudentsDb";
 
 const Subjects = ({ student }) => {
-  
-    const Subjects = ({ student }) => {
-        const course = courses.find((c) => c.id === student.course_id);
-      
-        const marks = marksData.filter((m) => m.id === student.id); // Fixed: student.id instead of student_id
-      
-        const subjects = subjectsData.filter((s) =>
-          marks.map((m) => m.subject_id).includes(s.id)
-        );
-      
-        const averageMarks = marks.reduce((acc, m) => acc + m.marks, 0) / marks.length;
-      
+  const course = courses.find((c) => c.id === student.course_id);
+
+  const marks = marksData.filter((m) => m.id === student.id); // Fixed: student.id instead of student_id
+
+  const subjects = subjectsData.filter((s) =>
+    marks.map((m) => m.subject_id).includes(s.id)
+  );
+
+  const averageMarks = marks.reduce((acc, m) => acc + m.marks, 0) / marks.length;
+
   return (
     <View style={styles.view}>
       <Image source={require("../assets/logo.png")} style={styles.image} />
@@ -38,7 +36,7 @@ const Subjects = ({ student }) => {
           <Text style={{ fontWeight: "bold", marginTop: 20 }}>
             Marks Information
           </Text>
-          
+
           <DataTable>
             <DataTable.Header>
               <DataTable.Title>Subject</DataTable.Title>

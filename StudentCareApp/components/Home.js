@@ -2,6 +2,7 @@ import { useState } from "react";
 import { BottomNavigation, Text } from "react-native-paper";
 import Profile from "./Profile";
 import Courses from "./Courses";
+import Subjects from "./Subjects";
 
 const Home = ({ route }) => {
   const { student } = route.params;
@@ -31,6 +32,7 @@ const Home = ({ route }) => {
   const renderScene = BottomNavigation.SceneMap({
     profile: () => <Profile student={student} />,
     courses: () => <Courses student={student} />,
+    subjects: () => <Subjects student={student} />,
   });
 
   return (

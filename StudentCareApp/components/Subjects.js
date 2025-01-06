@@ -1,11 +1,10 @@
 import React from "react";
 import { Image, StyleSheet, Text, View } from "react-native";
-import { Card } from "react-native-paper";
-import { courses } from "../assets/data/StudentsDb";
+import { Card, DataTable } from "react-native-paper";
+import { courses, marks as marksData, subjects as subjectsData } from "../assets/StudentsDb";
 
-const Courses = ({ student }) => {
-  const course = courses.find((c) => c.id === student.course_id);
-
+const Subjects = ({ student }) => {
+  
   return (
     <View style={styles.view}>
       <Image source={require("../assets/logo.png")} style={styles.image} />
@@ -14,7 +13,7 @@ const Courses = ({ student }) => {
         <Card.Content style={styles.cardContent}>
           <Text style={styles.h1}>{course.name}</Text>
           <Text style={{ textAlign: "center" }}>
-            Code: {course.course_code} | Dept: {course.department}
+            {marks.length} Subjects | average Marks: {averageMarks.toFixed()}
           </Text>
 
           <View
@@ -26,35 +25,32 @@ const Courses = ({ student }) => {
           />
 
           <Text style={{ fontWeight: "bold", marginTop: 20 }}>
-            Course Information
+            Marks Information
           </Text>
-          <Text>Code: {course.course_code}</Text>
-          <Text>Department: {course.department}</Text>
-          <Text>Duration: {course.duration}</Text>
-          <Text>Description: {course.description}</Text>
+          
         </Card.Content>
       </Card>
     </View>
   );
 };
 
-export default Courses;
+export default Subjects;
 
 const styles = StyleSheet.create({
   view: {
     flex: 1,
-  },
-  image: {
-    marginTop: 20,
-    width: "100%",
-    height: 100,
-    resizeMode: "contain",
   },
   h1: {
     fontSize: 24,
     fontWeight: "bold",
     marginTop: 4,
     textAlign: "center",
+  },
+  image: {
+    marginTop: 20,
+    width: "100%",
+    height: 100,
+    resizeMode: "contain",
   },
   profile_pic: {
     width: 150,

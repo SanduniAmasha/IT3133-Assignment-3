@@ -7,6 +7,12 @@ const Profile = ({ student }) => {
     <View style={styles.view}>
       <Image source={require("../assets/logo.png")} style={styles.image} />
 
+      <Card style={{ margin: 20 }}>
+        <Card.Content style={styles.cardContent}>
+          <Image source={student.profile_pic} style={styles.profile_pic} />
+          
+        </Card.Content>
+      </Card>
     </View>
   );
 };
@@ -22,5 +28,11 @@ const styles = StyleSheet.create({
     width: "100%",
     height: 100,
     resizeMode: "contain",
+  },
+  profile_pic: {
+    width: 150,
+    height: 150,
+    borderRadius: 100,
+    margin: "auto",
   },
 });

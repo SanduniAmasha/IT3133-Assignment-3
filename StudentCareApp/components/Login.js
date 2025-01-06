@@ -55,6 +55,9 @@ export default function Login(){
                         </View>
                     )}
                 </View>
+                <View style={styles.footer}>
+                    <Text style={styles.footer.text}>&copy; 2025 UoV Student Care</Text>
+                </View>
             </View>
         </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
@@ -104,6 +107,16 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         flexDirection: "row",
         gap: 6,
+      },
+      footer: {
+        backgroundColor: "#4b0150",
+        width: "100%",
+        color: "#fff",
+        padding: 20,
+        text: {
+          color: "#fff",
+          textAlign: "center",
+        },
       },
   });
   
